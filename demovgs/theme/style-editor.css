@@ -27,6 +27,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
+  --color-gray-600: oklch(44.6% 0.03 256.802);
   --color-neutral-100: oklch(97% 0 0);
   --color-neutral-200: oklch(92.2% 0 0);
   --color-neutral-300: oklch(87% 0 0);
@@ -38,9 +39,18 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --color-neutral-900: oklch(20.5% 0 0);
   --color-white: #fff;
   --spacing: 0.25rem;
+  --container-6xl: 72rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
   --text-3xl: 1.875rem;
   --text-3xl--line-height: calc(2.25 / 1.875);
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
   --font-weight-extrabold: 800;
+  --radius-md: 0.375rem;
   --default-font-family: var(--font-sans);
   --default-mono-font-family: var(--font-mono);
   --color-background: var(--wp--preset--color--background);
@@ -254,8 +264,14 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+.static {
+  position: static;
+}
 .start {
   inset-inline-start: var(--spacing);
+}
+.mx-auto {
+  margin-inline: auto;
 }
 .prose {
   --tw-prose-body: var(--color-foreground);
@@ -700,14 +716,151 @@ body {
 .prose .wp-block-table tfoot {
   border-top-width: 1px;
 }
+.mt-2 {
+  margin-top: calc(var(--spacing) * 2);
+}
+.mb-6 {
+  margin-bottom: calc(var(--spacing) * 6);
+}
 .block {
   display: block;
 }
 .contents {
   display: contents;
 }
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.h-5 {
+  height: calc(var(--spacing) * 5);
+}
+.h-8 {
+  height: calc(var(--spacing) * 8);
+}
+.h-\[70px\] {
+  height: 70px;
+}
+.h-auto {
+  height: auto;
+}
+.w-5 {
+  width: calc(var(--spacing) * 5);
+}
+.w-8 {
+  width: calc(var(--spacing) * 8);
+}
+.w-16 {
+  width: calc(var(--spacing) * 16);
+}
+.w-full {
+  width: 100%;
+}
+.max-w-6xl {
+  max-width: var(--container-6xl);
+}
+.max-w-full {
+  max-width: 100%;
+}
 .max-w-none {
   max-width: none;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.gap-2 {
+  gap: calc(var(--spacing) * 2);
+}
+.gap-3 {
+  gap: calc(var(--spacing) * 3);
+}
+.gap-4 {
+  gap: calc(var(--spacing) * 4);
+}
+.gap-6 {
+  gap: calc(var(--spacing) * 6);
+}
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.bg-\[\#9FCE00\] {
+  background-color: #9FCE00;
+}
+.bg-\[rgba\(232\,237\,239\,0\.4\)\] {
+  background-color: rgba(232,237,239,0.4);
+}
+.bg-white {
+  background-color: var(--color-white);
+}
+.object-contain {
+  object-fit: contain;
+}
+.p-6 {
+  padding: calc(var(--spacing) * 6);
+}
+.px-4 {
+  padding-inline: calc(var(--spacing) * 4);
+}
+.py-2 {
+  padding-block: calc(var(--spacing) * 2);
+}
+.py-12 {
+  padding-block: calc(var(--spacing) * 12);
+}
+.text-center {
+  text-align: center;
+}
+.text-2xl {
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+}
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+.font-bold {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+.font-medium {
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+}
+.font-semibold {
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+}
+.text-\[\#072200\] {
+  color: #072200;
+}
+.text-gray-600 {
+  color: var(--color-gray-600);
+}
+.text-white {
+  color: var(--color-white);
 }
 .content-none {
   --tw-content: none;
@@ -750,6 +903,62 @@ body {
   --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
   --tw-prose-invert-th-borders: var(--color-neutral-600);
   --tw-prose-invert-td-borders: var(--color-neutral-700);
+}
+@media (width >= 48rem) {
+  .md\:mt-0 {
+    margin-top: calc(var(--spacing) * 0);
+  }
+}
+@media (width >= 48rem) {
+  .md\:w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+}
+@media (width >= 48rem) {
+  .md\:w-auto {
+    width: auto;
+  }
+}
+@media (width >= 48rem) {
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (width >= 48rem) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+}
+@media (width >= 48rem) {
+  .md\:items-center {
+    align-items: center;
+  }
+}
+@media (width >= 48rem) {
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+}
+@media (width >= 48rem) {
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+}
+@media (width >= 48rem) {
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+}
+@media (width >= 48rem) {
+  .md\:px-\[150px\] {
+    padding-inline: 150px;
+  }
+}
+@media (width >= 48rem) {
+  .md\:text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
 }
 .prose-a\:text-primary :is(a):not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *)) {
   color: var(--color-primary);

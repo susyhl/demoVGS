@@ -9,39 +9,28 @@
 
 ?>
 
-<header id="masthead">
+<header>
+<main class="mx-auto px-4 max-w-6xl">
+	<!-- Barra de contacto -->
+	<section>
+		<div class="flex flex-col md:flex-row md:items-center md:justify-between bg-[#9FCE00] h-[70px] md:px-[150px] px-4 gap-2">
+			<!-- Izquierda: imagen pequeña + correo -->
+			<div class="flex items-center gap-3 w-full md:w-auto justify-center md:justify-start">
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/email-icon.png" alt="icono" class="h-8 w-8 object-contain" />
+				<a href="mailto:dominio@dominio.ess" class="text-white font-medium">dominio@dominio.es</a>
+			</div>
 
-	<div>
-		<?php
-		if ( is_front_page() ) :
-			?>
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<?php
-		else :
-			?>
-			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-		endif;
+			<!-- Derecha: botón redondeado blanco con imagen y texto -->
+			<div class="w-full md:w-auto flex justify-center md:justify-end">
+				<a href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/phone-icon.png" alt="icono botón" class="h-5 w-5 object-contain" />
+					<span class="text-[#072200] font-semibold">123 456 789</span>
+				</a>
+			</div>
+		</div>
+	</section>
 
-		$demovgs_description = get_bloginfo( 'description', 'display' );
-		if ( $demovgs_description || is_customize_preview() ) :
-			?>
-			<p><?php echo $demovgs_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-		<?php endif; ?>
-	</div>
-
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'demovgs' ); ?>">
-		<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'demovgs' ); ?></button>
-
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>',
-			)
-		);
-		?>
-	</nav><!-- #site-navigation -->
+	<?php echo do_shortcode('[cpt_slider]'); ?>
+</main>
 
 </header><!-- #masthead -->

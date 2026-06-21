@@ -144,7 +144,8 @@ add_action( 'widgets_init', 'demovgs_widgets_init' );
  * Enqueue scripts and styles.
  */
 function demovgs_scripts() {
-	wp_enqueue_style( 'demovgs-style', get_stylesheet_uri(), array(), DEMOVGS_VERSION );
+	wp_enqueue_style( 'demovgs-tailwind', get_stylesheet_directory_uri() . '/tailwind/tailwind-theme.css', array(), DEMOVGS_VERSION );
+	wp_enqueue_style( 'demovgs-style', get_stylesheet_uri(), array( 'demovgs-tailwind' ), DEMOVGS_VERSION );
 	wp_enqueue_script( 'demovgs-script', get_template_directory_uri() . '/js/script.min.js', array(), DEMOVGS_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
